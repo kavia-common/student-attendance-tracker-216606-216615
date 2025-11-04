@@ -42,7 +42,15 @@ Backend quickstart:
   docker compose -f docker-compose.api.yml up -d --build
 
 Frontend ↔ Backend:
-- API_BASE_URL (.env in Flutter) should point to the Node API (default http://localhost:8080).
+- Copy .env.example to .env inside the Flutter app:
+  ```
+  cd student-attendance-tracker-216606-216615/attendance_tracker_frontend
+  cp .env.example .env
+  ```
+- Ensure:
+  - API_BASE_URL points to the Node API (default http://localhost:8080)
+  - USE_REMOTE=true to use backend; set false for tests/offline
+  - FEATURE_FLAG_REALTIME=false (or true to enable SSE)
 - See attendance_tracker_frontend/INTEGRATION_BACKEND.md for details.
 
 Troubleshooting Flutter root detection:
