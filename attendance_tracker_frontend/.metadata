@@ -1,5 +1,5 @@
-# This file is used by Flutter to track the project's meta information.
-# It helps tools determine the Flutter project root reliably.
+# This file tracks properties of this Flutter project.
+# Used by IDEs/CI to detect Flutter project root and metadata.
 
 version:
   revision: "stable"
@@ -7,7 +7,11 @@ version:
 
 project_type: app
 
-# Files and directories created by Flutter tools should be
-# ignored by version control. For information on how to
-# configure your version control system, see:
-# https://flutter.dev/docs/development/tools/vs-code#automatically-generated-files
+migration:
+  platforms:
+    - android
+    - ios
+    - linux
+    - macos
+    - web
+    - windows
