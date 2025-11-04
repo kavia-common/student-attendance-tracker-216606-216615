@@ -7,7 +7,7 @@ import 'test_root_helper.dart' as test_root_helper;
 void main() {
   testWidgets('App builds and shows Login screen initially', (tester) async {
     // Touch helper so import isn't considered unused by analyzer.
-    expect(test_root_helper._rootCheck, isTrue);
+    expect(test_root_helper.rootCheck, isTrue);
     await tester.pumpWidget(const AppRoot());
     expect(find.byKey(const Key('login-title')), findsOneWidget);
   });

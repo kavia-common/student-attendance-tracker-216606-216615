@@ -1,7 +1,9 @@
 import 'dart:io';
 
-// Runs immediately on import to provide CI guidance without affecting tests.
-final bool _rootCheck = (() {
+/// PUBLIC_INTERFACE
+/// Exposed root check flag for tests to touch and avoid unused import warnings.
+/// This runs immediately on import to provide CI guidance without failing tests.
+final bool rootCheck = (() {
   final hasPubspec = File('pubspec.yaml').existsSync();
   final hasLibMain = File('lib/main.dart').existsSync();
   final hasAndroid = Directory('android').existsSync();
