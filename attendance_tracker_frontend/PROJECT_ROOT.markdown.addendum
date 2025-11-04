@@ -1,0 +1,9 @@
+This file is an additional marker to help CI/tooling detect the Flutter project root for the app.
+
+Flutter project root for this app:
+student-attendance-tracker-216606-216615/attendance_tracker_frontend
+
+Run commands from this directory:
+- flutter pub get
+- flutter analyze
+- flutter test
