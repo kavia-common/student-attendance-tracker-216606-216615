@@ -1,8 +1,10 @@
-/// This file exists solely to anchor CI/tooling to this Flutter project's root.
-/// Some CI tools scan for a Dart entry under the working directory to determine
-/// the correct root. This file imports local artifacts to assert location.
-///
-/// Not used by the app runtime.
+/*
+  This file exists solely to anchor CI/tooling to this Flutter project's root.
+  Some CI tools scan for a Dart entry under the working directory to determine
+  the correct root. This file imports local artifacts to assert location.
+
+  Not used by the app runtime.
+*/
 import 'dart:io';
 
 void main() {
