@@ -1,0 +1,8 @@
+name: student_attendance_workspace
+publish_to: 'none'
+description: Workspace meta for student attendance tracker. Not a Flutter app. See attendance_tracker_frontend for the Flutter project.
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+# This is a workspace-level helper. CI should cd into attendance_tracker_frontend.
+# No dependencies; this exists solely to prevent root-detection failures in tools scanning for pubspec.yaml.
