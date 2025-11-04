@@ -13,6 +13,8 @@ Structure:
 
 Usage:
 1) cd backend && cp .env.example .env
+# Ensure the Node API also has environment configured
+cd node-api && cp .env.example .env
 2) docker compose up -d
 3) Apply migrations:
    docker compose exec -u postgres postgres bash -lc "psql -d $DB_NAME -f /docker-entrypoint-initdb.d/migrations/001_init.sql"

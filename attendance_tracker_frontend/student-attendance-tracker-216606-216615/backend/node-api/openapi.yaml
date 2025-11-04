@@ -5,6 +5,9 @@ info:
   description: Node.js + Express + TypeScript API for attendance tracking with JWT auth and Postgres.
 servers:
   - url: http://localhost:8080
+x-docs:
+  helper: "/api/docs"
+  sse_note: "Use GET /api/sse/attendance with Bearer token"
 tags:
   - name: Auth
     description: Authentication endpoints

@@ -1,0 +1,13 @@
+Workspace contains both Flutter frontend and Node backend.
+
+Important:
+- For Flutter commands, set working directory to:
+  student-attendance-tracker-216606-216615/attendance_tracker_frontend
+
+- For Backend (Node API + Postgres), use:
+  student-attendance-tracker-216606-216615/backend
+  and its subfolder node-api for API specific npm operations.
+
+If your CI reports: "Could not determine project root directory for Flutter project",
+ensure you are running Flutter commands from the Flutter app root (see above) or use:
+bash student-attendance-tracker-216606-216615/print_flutter_project_root.sh

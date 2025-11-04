@@ -1,0 +1,16 @@
+CI working directory guidance
+
+To avoid "Could not determine project root directory for Flutter project":
+
+- Determine and cd to Flutter project root before running Flutter commands:
+  bash student-attendance-tracker-216606-216615/print_flutter_project_root.sh
+
+- Or use the new helper which echoes the absolute path:
+  FLUTTER_DIR="$(bash student-attendance-tracker-216606-216615/ensure_flutter_root.sh)"
+  cd "$FLUTTER_DIR"
+  flutter pub get
+  flutter analyze
+  CI=true flutter test -r expanded
+
+Flutter project root:
+student-attendance-tracker-216606-216615/attendance_tracker_frontend

@@ -1,5 +1,5 @@
 # PUBLIC_INTERFACE
-# Make targets to help CI/tools reliably run Flutter commands from the correct root.
+# Monorepo Makefile to help CI run Flutter tasks from the correct root.
 
 FLUTTER_DIR := student-attendance-tracker-216606-216615/attendance_tracker_frontend
 
@@ -19,6 +19,7 @@ flutter-analyze:
 flutter-test:
 	@cd $(FLUTTER_DIR) && CI=true flutter test -r expanded
 
+# Backend helpers
 .PHONY: backend-api-dev
 backend-api-dev:
 	@cd student-attendance-tracker-216606-216615/backend/node-api && npm ci && npm run dev

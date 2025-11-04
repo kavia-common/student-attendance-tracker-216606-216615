@@ -15,7 +15,12 @@ const app = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN?.split(",").map(s => s.trim()) || "*",
+    origin: (origin, callback) => {
+      const raw = process.env.CORS_ORIGIN || "*";
+      if (raw === "*" || !origin) return callback(null, true);
+      const allowed = raw.split(",").map(s => s.trim());
+      return callback(null, allowed.includes(origin));
+    },
     credentials: false
   })
 );
@@ -44,6 +49,20 @@ app.get("/", (_req: Request, res: Response) => {
     version: "1.0.0",
     description: "Express + TypeScript API for attendance tracking",
     uptime: process.uptime()
+  });
+});
+
+/**
+ * PUBLIC_INTERFACE
+ * OpenAPI YAML helper route: returns the static openapi.yaml and SSE usage tips.
+ */
+app.get("/api/docs", (_req: Request, res: Response) => {
+  res.json({
+    message: "OpenAPI spec available at project file openapi.yaml",
+    sse: {
+      endpoint: "/api/sse/attendance",
+      note: "Use EventSource or curl -N with Authorization: Bearer <token>"
+    }
   });
 });
 

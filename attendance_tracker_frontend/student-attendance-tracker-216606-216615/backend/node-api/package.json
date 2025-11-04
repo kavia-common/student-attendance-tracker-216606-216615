@@ -7,8 +7,11 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
+    "serve": "npm run build && npm start",
     "lint": "echo \"No linter configured\"",
-    "test": "node -e \"console.log('No tests configured; see README for curl smoke checks')\""
+    "test": "node -e \"console.log('No tests configured; see README for curl smoke checks')\"",
+    "compose:up": "docker compose up -d --build",
+    "compose:down": "docker compose down"
   },
   "author": "",
   "license": "MIT",

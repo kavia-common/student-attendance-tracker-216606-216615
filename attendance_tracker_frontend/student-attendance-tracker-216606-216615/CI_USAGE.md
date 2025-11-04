@@ -1,34 +1,18 @@
-# CI Usage
+# CI Usage - Monorepo
 
-To avoid "Could not determine project root directory for Flutter project", run Flutter tasks via the helpers that set the working directory correctly.
+To avoid: "Could not determine project root directory for Flutter project"
 
-From repository root:
+1) Determine Flutter project root from repo root:
+   bash student-attendance-tracker-216606-216615/print_flutter_project_root.sh
+   # or
+   dart run student-attendance-tracker-216606-216615/print_flutter_root.dart
 
-- Print Flutter root:
-  ```
-  make flutter-root
-  ```
-- Install deps:
-  ```
-  make flutter-get
-  ```
-- Analyze:
-  ```
-  make flutter-analyze
-  ```
-- Test:
-  ```
-  make flutter-test
-  ```
+2) Use Makefile convenience targets (they cd into the app root for you):
+   make -C student-attendance-tracker-216606-216615 flutter-get
+   make -C student-attendance-tracker-216606-216615 flutter-analyze
+   make -C student-attendance-tracker-216606-216615 flutter-test
 
-Alternatively, using the shell helper:
-```
-bash student-attendance-tracker-216606-216615/ci_run_flutter.sh get
-bash student-attendance-tracker-216606-216615/ci_run_flutter.sh analyze
-bash student-attendance-tracker-216606-216615/ci_run_flutter.sh test
-```
-
-Backend helpers:
-- `make backend-db-up` -> starts Postgres
-- `make backend-api-dev` -> runs Node API in dev
-- `make backend-stack-up` -> Postgres + Node API together
+Alternatively:
+   FLUTTER_DIR="$(bash student-attendance-tracker-216606-216615/ensure_flutter_root.sh)"
+   cd "$FLUTTER_DIR"
+   flutter pub get && flutter analyze && CI=true flutter test -r expanded

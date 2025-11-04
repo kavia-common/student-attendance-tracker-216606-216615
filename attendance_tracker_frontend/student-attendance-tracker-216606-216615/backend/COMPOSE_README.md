@@ -16,4 +16,5 @@ Options:
      ```
    - After healthy:
      - API: http://localhost:8080
+     - Docs helper: http://localhost:8080/api/docs
      - Use curl smoke tests in node-api/README.md

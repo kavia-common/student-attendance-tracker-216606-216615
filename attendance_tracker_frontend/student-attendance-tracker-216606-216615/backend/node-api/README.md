@@ -52,6 +52,13 @@ docker run --rm -p 8080:8080 --env-file .env attendance-api
 
 ## API
 - OpenAPI spec: openapi.yaml
+  - Make sure your environment variables (.env) are set so the app starts and the OpenAPI describes the current routes.
+  - Implemented endpoints reflected in the spec:
+    - POST /api/auth/login
+    - POST /api/attendance/mark
+    - GET /api/attendance/daily
+    - GET /api/attendance/weekly
+    - GET /api/sse/attendance
 
 - GET `/` -> health
 - POST `/api/auth/login` -> { email, password } => { token, user }
@@ -99,3 +106,14 @@ curl -N -H "Authorization: Bearer $TOKEN" http://localhost:8080/api/sse/attendan
 ## Notes
 - This demo uses a simplified auth flow; for production store password hashes and implement proper signup flows.
 - Ensure database migrations from the SQL assets are applied before running the API.
+
+Health:
+- GET http://localhost:8080/ -> returns basic API metadata and uptime.
+- GET http://localhost:8080/api/docs -> returns a small JSON with OpenAPI info and SSE usage.
+
+SSE Example (Browser):
+```js
+const token = '...'; // from login
+const es = new EventSource('/api/sse/attendance', { withCredentials: false });
+es.addEventListener('attendance.marked', (e) => console.log('Event:', e.data));
+```
