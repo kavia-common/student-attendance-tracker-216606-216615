@@ -14,12 +14,26 @@ Structure:
 Usage:
 1) cd backend && cp .env.example .env
 # Ensure the Node API also has environment configured
-cd node-api && cp .env.example .env
+cd node-api && cp .env.example .env && cd ..
 2) docker compose up -d
-3) Apply migrations:
+3) Wait for Postgres healthcheck to pass (pg_isready)
+4) Apply migrations:
    docker compose exec -u postgres postgres bash -lc "psql -d $DB_NAME -f /docker-entrypoint-initdb.d/migrations/001_init.sql"
-4) Seed (optional):
+5) Seed (optional):
    docker compose exec -u postgres postgres bash -lc "psql -d $DB_NAME -f /docker-entrypoint-initdb.d/seed/seed.sql"
+
+API + DB stack:
+- cd backend && docker compose -f docker-compose.api.yml up -d --build
+- Wait for both healthchecks:
+  - Postgres via pg_isready
+  - API via GET /
+- API endpoints:
+  - POST /api/auth/login
+  - POST /api/attendance/mark
+  - GET /api/attendance/daily?date=YYYY-MM-DD
+  - GET /api/attendance/weekly?weekStart=YYYY-MM-DD
+  - GET /api/sse/attendance (SSE)
+- Docs helper: GET /api/docs
 
 API service:
 - See node-api/ for the TypeScript API.

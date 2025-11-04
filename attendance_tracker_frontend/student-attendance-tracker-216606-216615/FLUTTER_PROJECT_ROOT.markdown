@@ -1,7 +1,13 @@
-This is the workspace root. The Flutter app root is:
+This workspace contains a Flutter application.
+
+Flutter project root:
 student-attendance-tracker-216606-216615/attendance_tracker_frontend
 
-CI: cd into that directory before running Flutter commands:
-- flutter pub get
-- flutter analyze
-- flutter test
+CI usage:
+- Determine and cd into the Flutter project root before running any Flutter commands.
+- Helper script to echo absolute path:
+  bash student-attendance-tracker-216606-216615/print_flutter_project_root.sh
+- Or use:
+  FLUTTER_DIR="$(bash student-attendance-tracker-216606-216615/ensure_flutter_root.sh)"
+  cd "$FLUTTER_DIR"
+  flutter pub get && flutter analyze && CI=true flutter test -r expanded

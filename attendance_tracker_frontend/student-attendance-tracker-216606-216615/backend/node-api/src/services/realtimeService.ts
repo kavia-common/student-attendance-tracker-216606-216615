@@ -28,7 +28,11 @@ export function onEvent(listener: Listener) {
   return () => emitter.remove(listener);
 }
 
-// PUBLIC_INTERFACE
+/**
+ * PUBLIC_INTERFACE
+ * Publish an event to all SSE subscribers.
+ * Typical usage: publish("attendance.marked", record)
+ */
 export function publish(event: string, data: any) {
   emitter.emit(event, data);
 }

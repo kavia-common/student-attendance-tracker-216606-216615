@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PUBLIC_INTERFACE
-# Ensures CI sets the correct Flutter project root and prints it.
-# Exits 0 and prints path if found, 2 otherwise.
+# Prints the absolute path to the Flutter project root for CI/tools.
+# Exits 0 on success; 2 on failure.
 
 set -euo pipefail
 

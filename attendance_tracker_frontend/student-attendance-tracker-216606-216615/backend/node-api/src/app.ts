@@ -26,6 +26,14 @@ app.use(
 );
 app.use(express.json({ limit: "1mb" }));
 
+// Handle invalid JSON body parse errors and return 400 with message
+app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+  if (err && err.type === "entity.parse.failed") {
+    return res.status(400).json({ error: "Invalid JSON payload" });
+  }
+  return next(err);
+});
+
 // Rate limiting for basic abuse protection
 app.use(
   rateLimit({

@@ -1,5 +1,13 @@
 # student-attendance-tracker-216606-216615
 
+CI note:
+- If CI reports "Could not determine project root directory for Flutter project",
+  ensure the working directory is set to:
+  student-attendance-tracker-216606-216615/attendance_tracker_frontend
+- Or use helper to print the correct path:
+  bash student-attendance-tracker-216606-216615/print_flutter_project_root.sh
+- See also: student-attendance-tracker-216606-216615/CI_USAGE.md
+
 This workspace contains:
 - Flutter mobile app at: student-attendance-tracker-216606-216615/attendance_tracker_frontend
 - Backend:

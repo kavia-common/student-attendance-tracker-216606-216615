@@ -1,0 +1,3 @@
+# Marker file to help CI and tooling detect the Flutter project root within this workspace.
+# Actual Flutter app location:
+student-attendance-tracker-216606-216615/attendance_tracker_frontend

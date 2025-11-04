@@ -9,6 +9,7 @@ export interface AuthedRequest extends Request {
  * PUBLIC_INTERFACE
  * Express middleware to authenticate requests by verifying a Bearer token.
  * On success attaches req.user = { id, email?, name? }.
+ * Returns 401 on missing/invalid/expired tokens.
  */
 export function requireAuth(req: AuthedRequest, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization || "";

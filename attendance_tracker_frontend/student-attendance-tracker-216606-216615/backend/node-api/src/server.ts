@@ -12,4 +12,5 @@ server.listen(PORT, () => {
   // PUBLIC_INTERFACE
   // Server start log for operational readiness.
   console.log(`Attendance API listening on http://localhost:${PORT}`);
+  console.log("Health endpoint: GET /");
 });

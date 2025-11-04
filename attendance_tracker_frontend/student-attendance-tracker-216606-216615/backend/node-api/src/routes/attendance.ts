@@ -53,7 +53,11 @@ router.get(
      * query: date=YYYY-MM-DD
      * returns: 200 AttendanceRecord[]
      */
-    const date = String(req.query.date || "");
+    const dateRaw = req.query.date;
+    if (!dateRaw || typeof dateRaw !== "string") {
+      return res.status(400).json({ error: "date query param is required (YYYY-MM-DD)" });
+    }
+    const date = String(dateRaw);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
       return res.status(400).json({ error: "date must be YYYY-MM-DD" });
     }
@@ -78,7 +82,11 @@ router.get(
      * query: weekStart=YYYY-MM-DD
      * returns: 200 AttendanceRecord[]
      */
-    const weekStart = String(req.query.weekStart || "");
+    const weekStartRaw = req.query.weekStart;
+    if (!weekStartRaw || typeof weekStartRaw !== "string") {
+      return res.status(400).json({ error: "weekStart query param is required (YYYY-MM-DD)" });
+    }
+    const weekStart = String(weekStartRaw);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(weekStart)) {
       return res.status(400).json({ error: "weekStart must be YYYY-MM-DD" });
     }
