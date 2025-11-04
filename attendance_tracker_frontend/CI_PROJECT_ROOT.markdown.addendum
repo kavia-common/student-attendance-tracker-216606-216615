@@ -1,0 +1,10 @@
+This workspace contains a helper shim under:
+student-attendance-tracker-216606-216615/attendance_tracker_frontend/student-attendance-tracker-216606-216615/main.dart
+
+Do not execute Dart/Flutter from the workspace shim. Always set working directory to:
+student-attendance-tracker-216606-216615/attendance_tracker_frontend
+
+Then run:
+- flutter pub get
+- flutter analyze
+- flutter test
