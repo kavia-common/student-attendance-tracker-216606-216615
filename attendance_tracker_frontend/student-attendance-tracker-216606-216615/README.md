@@ -2,7 +2,9 @@
 
 This workspace contains:
 - Flutter mobile app at: student-attendance-tracker-216606-216615/attendance_tracker_frontend
-- Backend database assets at: student-attendance-tracker-216606-216615/backend
+- Backend:
+  - Database assets at: student-attendance-tracker-216606-216615/backend
+  - Node API at: student-attendance-tracker-216606-216615/backend/node-api
 
 ## Backend Database (PostgreSQL)
 
