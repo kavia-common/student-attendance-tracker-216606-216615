@@ -1,0 +1,30 @@
+version: "3.9"
+
+# PUBLIC_INTERFACE
+# Docker Compose stack for running PostgreSQL for the Student Attendance Tracker backend.
+services:
+  postgres:
+    image: postgres:16
+    container_name: attendance_postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      # Optional: mount migrations for manual psql execution from container
+      - ./database:/docker-entrypoint-initdb.d:ro
+      # Note: We do not auto-run schema.sql by default; you can psql -f it after container is healthy.
+
+volumes:
+  db_data:

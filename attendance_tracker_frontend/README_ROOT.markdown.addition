@@ -1,0 +1,13 @@
+Flutter Project Root Marker (Addition)
+
+This directory IS the Flutter project root.
+Run all Flutter commands from here:
+- flutter pub get
+- flutter analyze
+- flutter test
+
+Presence indicators:
+- pubspec.yaml
+- lib/main.dart
+- android/
+- analysis_options.yaml
