@@ -1,0 +1,5 @@
+# This file helps CI/tooling detect the Flutter project root.
+# Run commands from this directory:
+# - flutter pub get
+# - flutter analyze
+# - flutter test

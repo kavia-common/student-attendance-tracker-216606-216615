@@ -1,0 +1,4 @@
+# CI helper metadata to locate the Flutter project root.
+# Some CI integrations look for this file at the workspace level.
+[flutter]
+project_root=attendance_tracker_frontend
