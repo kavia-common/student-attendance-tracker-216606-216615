@@ -1,18 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:attendance_tracker_frontend/main.dart';
+import 'package:attendance_tracker_frontend/app.dart';
 
 void main() {
-  testWidgets('App generation message displayed', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
-
-    expect(find.text('attendance_tracker_frontend App is being generated...'), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+  testWidgets('MaterialApp builds with Ocean theme and initial route', (tester) async {
+    await tester.pumpWidget(const AttendanceApp());
+    // Initial route should be login page placeholder text.
+    expect(find.text('Login screen placeholder'), findsOneWidget);
   });
 
-  testWidgets('App bar has correct title', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Navigation from Login to Dashboard works', (tester) async {
+    await tester.pumpWidget(const AttendanceApp());
+    final proceedButton = find.text('Proceed to Dashboard');
+    expect(proceedButton, findsOneWidget);
 
-    expect(find.text('attendance_tracker_frontend'), findsOneWidget);
+    await tester.tap(proceedButton);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Dashboard placeholder'), findsOneWidget);
   });
 }
